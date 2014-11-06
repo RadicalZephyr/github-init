@@ -16,14 +16,15 @@ done
 NAME="$1"
 DESCRIPTION="$2"
 
-USERNAME="${GH_USERNAME}"
+if [ \( -z "$GH_USERNAME" \) -o \( -z "$GH_API_TOKEN" \) ]
+then
+    echo "You must set GH_USERNAME and GH_API_TOKEN."
+    exit 1
+fi
 
-APITOKEN="${GH_API_TOKEN}"
+PAYLOAD="{\"name\": \"$NAME\",\"description\": \"$DESCRIPTION\",\"homepage\": \"https://github.com/$GH_USERNAME/$NAME\",\"auto_init\": ${INIT-false}}"
 
-
-PAYLOAD="{\"name\": \"$NAME\",\"description\": \"$DESCRIPTION\",\"homepage\": \"https://github.com/$USERNAME/$NAME\",\"auto_init\": ${INIT-false}}"
-
-if curl -d "${PAYLOAD}" -H "Authorization: token ${APITOKEN}" https://api.github.com/user/repos
+if curl -d "${PAYLOAD}" -H "Authorization: token ${GH_API_TOKEN}" https://api.github.com/user/repos
 then
     git clone "git@github.com:${USERNAME}/${NAME}.git"
 fi
