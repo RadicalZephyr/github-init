@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 
-TEMP=$(getopt hig:l: $@)
+TEMP=$(getopt -o 'hig:l:' --long "help,init,gitignore:,license:" -n $(basename $0) -- "$@")
+
+EXPANDED=\"$(echo ${TEMP} | head -c 64)\"
+
+if [ "$EXPANDED" = '"-- hig:l: --long help,init,gitignore:,license: -n github-init.sh"' ]
+then
+    TEMP=$(getopt hig:l: $@)
+fi
 
 if [ $? != 0 ] ; then echo "Terminating..." >&2 ; exit 1 ; fi
 
