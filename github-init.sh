@@ -24,7 +24,7 @@ fi
 
 PAYLOAD="{\"name\": \"$NAME\",\"description\": \"$DESCRIPTION\",\"homepage\": \"https://github.com/$GH_USERNAME/$NAME\",\"auto_init\": ${INIT-false}}"
 
-if curl -d "${PAYLOAD}" -H "Authorization: token ${GH_API_TOKEN}" https://api.github.com/user/repos
+if curl -d "${PAYLOAD}" -H "Authorization: token ${GH_API_TOKEN}" https://api.github.com/user/repos &>/dev/null
 then
-    git clone "git@github.com:${USERNAME}/${NAME}.git"
+    git clone "git@github.com:${GH_USERNAME}/${NAME}.git"
 fi
