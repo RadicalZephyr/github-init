@@ -16,7 +16,7 @@ while true; do
     esac
 done
 
-if [ "$HELP" -eq "true" ]
+if [ "$HELP" = "true" ]
 then
     echo "usage: github-init.sh [-higl] repo-name [repo-description]"
     echo "  -h                      Display this help"
