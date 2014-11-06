@@ -2,9 +2,9 @@
 
 TEMP=$(getopt -o 'hig:l:' --long "help,init,gitignore:,license:" -n $(basename $0) -- "$@")
 
-EXPANDED=\"$(echo ${TEMP} | head -c 64)\"
+EXPANDED=\"$(echo ${TEMP} | head -c 49)\"
 
-if [ "$EXPANDED" = '"-- hig:l: --long help,init,gitignore:,license: -n github-init.sh"' ]
+if [ "$EXPANDED" = '"-- hig:l: --long help,init,gitignore:,license: -n"' ]
 then
     TEMP=$(getopt hig:l: $@)
 fi
