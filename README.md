@@ -21,3 +21,9 @@ usage: github-init.sh [-higl] repo-name [repo-description]
   -g <ignore template>    Initialize repo with a gitignore file
   -l <license template>   Initialize repo with a license
 ```
+
+You can also use `github-delete.sh` to delete repositories from github.
+
+```
+usage: github-delete.sh repo-name
+```
