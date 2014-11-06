@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-TEMP=$(getopt -o 'i' --long "init" -n $(basename $0) -- "$@")
+TEMP=$(getopt i $@)
 
 if [ $? != 0 ] ; then echo "Terminating..." >&2 ; exit 1 ; fi
 
@@ -8,7 +8,7 @@ eval set -- "$TEMP"
 
 while true; do
     case "$1" in
-        -i | --init ) INIT=true; shift 1 ;;
+        -i | --init ) INIT=true; shift ;;
         -- ) shift; break ;;
     esac
 done
