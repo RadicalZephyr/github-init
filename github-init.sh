@@ -57,7 +57,14 @@ PAYLOAD="{
 \"license_template\": \"$LICENSE_NAME\"
 }"
 
-if curl -d "${PAYLOAD}" -H "Authorization: token ${GH_API_TOKEN}" https://api.github.com/user/repos
+
+curl -d "${PAYLOAD}" -H "Authorization: token ${GH_API_TOKEN}" https://api.github.com/user/repos
+
+if [ ! -d $NAME ]
 then
+    echo "Repo $NAME successfully created!"
     git clone "git@github.com:${GH_USERNAME}/${NAME}.git"
+
+else
+    echo "A directory '$NAME' already exists..."
 fi
