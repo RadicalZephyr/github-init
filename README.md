@@ -3,10 +3,11 @@ Github-Init
 
 Like git init, but use defaults from github
 
-You can also make this a git alias like this:
+If you put the script file onto your path somewhere, then you can also
+make this a git alias like so:
 
 ```
-git config --global alias.gh-init '!$PWD/github-init.sh'
+git config --global alias.gh-init '!github-init.sh'
 ```
 
 Now you can run `git gh-init <name>` and you'll shortly have a new
