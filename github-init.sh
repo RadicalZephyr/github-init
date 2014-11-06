@@ -35,6 +35,12 @@ then
     exit 1
 fi
 
+if [ -z "$NAME" ]
+then
+    echo "You must provide a name for your repo."
+    exit 1
+fi
+
 PAYLOAD="{
 \"name\": \"$NAME\",
 \"description\": \"$DESCRIPTION\",
