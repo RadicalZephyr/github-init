@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-TEMP=$(getopt ig:l: $@)
+TEMP=$(getopt hig:l: $@)
 
 if [ $? != 0 ] ; then echo "Terminating..." >&2 ; exit 1 ; fi
 
@@ -8,12 +8,23 @@ eval set -- "$TEMP"
 
 while true; do
     case "$1" in
+        -h | --help       ) HELP=true; shift ;;
         -i | --init       ) INIT=true; shift ;;
         -g | --gitignore  ) IGNORE_FILE_TYPE="$2"; shift 2 ;;
         -l | --license    ) LICENSE_NAME="$2"; shift 2 ;;
         -- ) shift; break ;;
     esac
 done
+
+if [ "$HELP" -eq "true" ]
+then
+    echo "usage: github-init.sh [-higl] repo-name [repo-description]"
+    echo "  -h                      Display this help"
+    echo "  -i                      Initialize repo with a README"
+    echo "  -g <ignore template>    Initialize repo with a gitignore file"
+    echo "  -l <license template>   Initialize repo with a license"
+    exit 0
+fi
 
 NAME="$1"
 DESCRIPTION="$2"
