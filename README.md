@@ -1,6 +1,8 @@
 Github-Init
 ===========
 
+[![Made at Hacker School](http://img.shields.io/badge/Made_At-Hacker_School-brightgreen.svg)](http://shields.io/)
+
 Like git init, but use defaults from github
 
 If you put the script file onto your path somewhere, then you can also
