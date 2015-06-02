@@ -1,7 +1,8 @@
 Github-Init
 ===========
 
-[![Made at Hacker School](http://img.shields.io/badge/Made_At-Hacker_School-brightgreen.svg)](http://shields.io/)
+[![Made at the Recurse Center][made-at-badge]](http://shields.io/)
+[made-at-badge]: http://img.shields.io/badge/Made_At-The_Recurse_Center-brightgreen.svg
 
 Like git init, but use defaults from github
 
